@@ -203,6 +203,13 @@ h1.name {
   margin: 0 auto;
 }
 
+/* Paper main figures are wide; let them fill the figure column */
+.thumb-fig {
+  max-width: 100%;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+}
+
 .misc-label {
   font-weight: 700;
   white-space: nowrap;
