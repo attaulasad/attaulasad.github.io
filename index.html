@@ -6,7 +6,7 @@
     <title>Atta Ul Asad</title>
 
     <meta name="author" content="Atta Ul Asad">
-    <meta name="description" content="Atta Ul Asad is an M.S. student in Artificial Intelligence at LUMS studying trustworthy LLMs for high-stakes decision support, with clinical diagnosis as the main testbed.">
+    <meta name="description" content="Atta Ul Asad is an M.S. student in Artificial Intelligence at LUMS studying how LLMs behave as decision support in high-stakes settings, with clinical diagnosis as the main testbed.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="favicon.ico" sizes="any">
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
@@ -28,13 +28,14 @@
                 </p>
                 <p>
                   I am an M.S. student in Artificial Intelligence at the <a href="https://lums.edu.pk/">Lahore University of Management Sciences (LUMS)</a>.
-                  I study how large language models fail as decision support in high-stakes settings, using clinical diagnosis as my main testbed.
-                  My current project asks whether showing an LLM a clinician's working diagnosis suppresses its ability to flag that diagnosis as an error.
+                  I study how large language models behave as decision support in high-stakes settings, using clinical diagnosis as my main testbed.
+                  In <a href="data/second-opinion-or-echo.pdf"><em>Second Opinion or Echo?</em></a>, under review at ACM FAccT 2027, I test how a clinician's suggested diagnosis steers an LLM, using published cases in which the treating team's diagnosis was later proven wrong.
+                  Across five open-weight models, one sentence naming the documented error turned 37&ndash;89% of correct answers wrong, and models agreed with it about as often as with the correct diagnosis, so agreement was not evidence of independent judgment.
                   More broadly, I audit failures that aggregate accuracy hides, such as the loss of faithfulness under KV-cache quantization in retrieval-augmented generation.
                 </p>
                 <p>
                   In summer 2026 I was a research intern at the <a href="https://www.ou.edu/">University of Oklahoma</a> with <a href="https://www.ou.edu/coe/cs/people/faculty/dean-hougen/">Dean F. Hougen</a>.
-                  I also collaborate with the <a href="https://ai.stanford.edu/">Stanford AI Lab (SAIL)</a> on KV-cache compression and self-improving coding agents.
+                  I also collaborate with the <a href="https://ai.stanford.edu/">Stanford AI Lab (SAIL)</a> on KV-cache eviction and recursive self-improvement in language models.
                   I received my B.S. in Computer Science from <a href="https://www.comsats.edu.pk/">COMSATS University Islamabad</a>.
                 </p>
                 <p style="text-align:center">
@@ -58,7 +59,8 @@
               <td style="padding:16px;width:100%;vertical-align:middle">
                 <h2>Updates</h2>
                 <ul class="updates">
-                  <li><span class="date">Sep 2026</span> LORE-KV, our KV-cache eviction paper, is under review at ICLR 2027.</li>
+                  <li><span class="date">Nov 2026</span> Submitted <a href="data/second-opinion-or-echo.pdf"><em>Second Opinion or Echo?</em></a>, on how documented misdiagnoses steer LLMs, to ACM FAccT 2027.</li>
+                  <li><span class="date">Oct 2026</span> LORE-KV, our KV-cache eviction paper under review at ICLR 2027, is on <a href="https://arxiv.org/abs/2610.07643">arXiv</a> with a <a href="https://ahsanbilal7.github.io/train_free_kv/">project page</a>.</li>
                   <li><span class="date">Aug 2026</span> <em>Faithfulness Is Not Free</em> is on <a href="https://arxiv.org/abs/2608.30996">arXiv</a> and accepted at the GroundLM workshop at EMNLP 2026.</li>
                   <li><span class="date">Aug 2026</span> Started my M.S. in Artificial Intelligence at LUMS.</li>
                   <li><span class="date">Jun 2026</span> Joined the University of Oklahoma as a research intern with Dean F. Hougen.</li>
@@ -83,25 +85,28 @@
 
             <tr class="paper-row">
               <td class="paper-thumb" style="padding:16px;width:20%;vertical-align:middle">
-                <img class="thumb" src="images/lorekv.svg" alt="Schematic of LORE-KV: sampled continuations score prompt tokens for eviction">
+                <img class="thumb" src="images/secondopinion.svg" alt="Schematic: one added sentence suggesting a diagnosis flips the model's answer on a fixed case record, from correct to wrong or from wrong to correct">
               </td>
               <td class="paper-text" style="padding:8px;width:80%;vertical-align:middle">
-                <span class="papertitle">Monte Carlo Future-Query Estimation for KV Cache Eviction</span>
+                <a href="data/second-opinion-or-echo.pdf">
+                  <span class="papertitle">Second Opinion or Echo? How Documented Misdiagnoses Steer Language Models</span>
+                </a>
                 <br>
-                <a href="https://openreview.net/profile?id=~Ahsan_Bilal1">A. Bilal</a>,
-                <a href="https://openreview.net/profile?id=~Muhammad_Ahmed_Mohsin1">M. A. Mohsin</a>,
-                <a href="https://openreview.net/profile?id=~Muhammad_Umer1">M. Umer</a>,
-                <a href="https://openreview.net/profile?id=~Wajih_Hassan_Raza1">W. H. Raza</a>,
                 <strong>A. U. Asad</strong>,
-                <a href="https://openreview.net/profile?id=~Young_D._Kwon1">Y. D. Kwon</a>,
-                <a href="https://openreview.net/profile?id=~Michal_Valko1">M. Valko</a>,
+                <a href="https://openreview.net/profile?id=~Ahsan_Bilal1">A. Bilal</a>,
+                R. M. S. Khan,
                 <a href="https://openreview.net/profile?id=~Dean_F._Hougen1">D. F. Hougen</a>
                 <br>
-                <em>Under review at ICLR 2027</em>
+                <em>Under review at ACM FAccT 2027</em>
+                <br>
+                <a href="data/second-opinion-or-echo.pdf">PDF</a>
+                /
+                <a href="https://anonymous.4open.science/r/opinion_echo-0501/">code</a>
                 <p></p>
                 <p>
-                  LORE-KV scores each prompt token by how much deleting it would change the attention output for short continuations sampled from the frozen model, so the cache keeps the tokens that future decoding queries need.
-                  At a 128-token budget, LongBench on Qwen2.5-14B goes from 45.49 to 48.24 and 16K RULER on Mistral-7B from 45.20 to 51.05; a single sampled continuation recovers about 89% of the gain.
+                  We cut 184 published case reports, each with a documented misdiagnosis, into a record from before the error and a record with the later findings, and change only one sentence, which suggests a diagnosis.
+                  Across five open-weight LLMs, suggesting the documented error on the early record turned 37&ndash;89% of correct answers wrong, while suggesting the correct diagnosis fixed 39&ndash;92% of wrong ones.
+                  With the later findings, the error still overturned 31&ndash;64% of correct answers in three models, and an instruction to assess the case independently weakened right and wrong suggestions alike.
                 </p>
               </td>
             </tr>
@@ -131,6 +136,41 @@
               </td>
             </tr>
 
+            <tr class="paper-row">
+              <td class="paper-thumb" style="padding:16px;width:20%;vertical-align:middle">
+                <img class="thumb" src="images/lorekv.svg" alt="Schematic of LORE-KV: sampled continuations score prompt tokens for eviction">
+              </td>
+              <td class="paper-text" style="padding:8px;width:80%;vertical-align:middle">
+                <a href="https://ahsanbilal7.github.io/train_free_kv/">
+                  <span class="papertitle">Monte Carlo Estimation for KV Cache Eviction</span>
+                </a>
+                <br>
+                <a href="https://openreview.net/profile?id=~Ahsan_Bilal1">A. Bilal</a>,
+                <a href="https://openreview.net/profile?id=~Muhammad_Ahmed_Mohsin1">M. A. Mohsin</a>,
+                <a href="https://openreview.net/profile?id=~Muhammad_Umer1">M. Umer</a>,
+                <a href="https://openreview.net/profile?id=~Wajih_Hassan_Raza1">W. H. Raza</a>,
+                <strong>A. U. Asad</strong>,
+                <a href="https://openreview.net/profile?id=~Young_D._Kwon1">Y. D. Kwon</a>,
+                <a href="https://openreview.net/profile?id=~Michal_Valko1">M. Valko</a>,
+                <a href="https://openreview.net/profile?id=~Dean_F._Hougen1">D. F. Hougen</a>
+                <br>
+                <em>Under review at ICLR 2027</em>
+                <br>
+                <a href="https://ahsanbilal7.github.io/train_free_kv/">project page</a>
+                /
+                <a href="https://arxiv.org/abs/2610.07643">arXiv</a>
+                /
+                <a href="https://arxiv.org/pdf/2610.07643">PDF</a>
+                /
+                <a href="https://github.com/AhsanBilal7/train_free_kv">code</a>
+                <p></p>
+                <p>
+                  LORE-KV is a training-free eviction method: it scores each prompt token by how much deleting it would change the attention output for short continuations sampled from the frozen model, so the cache keeps the tokens that future decoding queries need.
+                  At a 128-token budget, LongBench on Qwen2.5-14B goes from 45.49 to 48.24 and 16K RULER on Mistral-7B from 45.20 to 51.05; a single sampled continuation recovers about 89% of the gain. Gains shrink at larger budgets.
+                </p>
+              </td>
+            </tr>
+
           </tbody></table>
 
           <!-- ============================== ONGOING WORK ============================== -->
@@ -145,12 +185,12 @@
 
             <tr>
               <td style="padding:8px 16px;width:100%;vertical-align:middle">
-                <span class="papertitle">Second-Opinion Independence in Clinical LLM Decision Support</span>
+                <span class="papertitle">Influence-Guided Self-Evolution and Game-Theoretic Environment Design for Language Models</span>
                 <br>
-                <em>In progress</em>
+                <em>In progress</em>, with <a href="https://openreview.net/profile?id=~Ahsan_Bilal1">A. Bilal</a> and <a href="https://openreview.net/profile?id=~Muhammad_Ahmed_Mohsin1">M. A. Mohsin</a>
                 <p>
-                  When an LLM serves as a second opinion, does seeing the clinician's working diagnosis suppress its ability to flag that diagnosis as wrong?
-                  The study compares documented real misdiagnoses with synthetic errors and measures the change in error detection, not standalone accuracy.
+                  Recursive self-improvement for language models: using influence estimates to choose which self-generated data a model should learn from, and game-theoretic environment design to keep its training tasks informative as it improves.
+                  The central question is when self-evolution produces real gains rather than reinforcing the model's own errors.
                 </p>
               </td>
             </tr>
@@ -178,17 +218,6 @@
                 <a href="https://github.com/asad073-ui/Re-derivation-Leakage">code</a>
                 <p>
                   Shared memory that enforces a retrieval-time ID blocklist and deletion over the derivation closure can still store forgotten TOFU facts: a node written from an agent's parametric answer has a fresh ID and no parent edges, so both checks certify it clean.
-                </p>
-              </td>
-            </tr>
-
-            <tr>
-              <td style="padding:8px 16px;width:100%;vertical-align:middle">
-                <span class="papertitle">Self-Improving Coding Agents</span>
-                <br>
-                <em>In progress</em>, with M. A. Mohsin and M. Umer
-                <p>
-                  Whether a Qwen2.5-14B coding agent improves through reinforcement learning on its own sampled trajectories (HumanEval+, MBPP+), and when self-training yields real gains rather than reinforcing the agent's own errors.
                 </p>
               </td>
             </tr>
@@ -247,7 +276,7 @@
               <td style="padding:0px">
                 <br>
                 <p style="text-align:right;font-size:small;">
-                  Design and source code from <a href="https://github.com/jonbarron/jonbarron_website">Jon Barron's website</a>. Last updated September 2026.
+                  Design and source code from <a href="https://github.com/jonbarron/jonbarron_website">Jon Barron's website</a>. Last updated November 2026.
                 </p>
               </td>
             </tr>
