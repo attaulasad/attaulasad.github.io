@@ -9,6 +9,7 @@ Static single-page site served by GitHub Pages. Plain HTML/CSS, no build step.
 | `images/` | Profile photo, paper thumbnails, favicons |
 | `data/AttaUlAsad_CV.pdf` | CV linked from the header |
 | `data/second-opinion-or-echo.pdf` | Preprint of *Second Opinion or Echo?* (under review at ACM FAccT 2027) |
+| `robots.txt`, `sitemap.xml` | Crawl rules and sitemap for search engines; bump `<lastmod>` when the page changes |
 
 ## Updating
 
