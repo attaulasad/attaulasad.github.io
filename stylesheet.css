@@ -147,6 +147,32 @@ span.highlight {
   font-weight: 700;
 }
 
+/* The name is an h1 for search engines; keep Barron's look */
+h1.name {
+  font-weight: normal;
+  line-height: 1.2;
+}
+
+.tagline {
+  text-align: center;
+  color: #666;
+  margin: 4px 0 0 0;
+}
+
+.threads {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.threads li {
+  margin: 0 0 6px 0;
+}
+
+.note {
+  margin: 6px 0 0 0;
+  color: #666;
+}
+
 .venue {
   font-style: italic;
 }
