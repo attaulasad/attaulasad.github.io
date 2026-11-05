@@ -153,10 +153,12 @@ h1.name {
   line-height: 1.2;
 }
 
-.tagline {
+.contact {
   text-align: center;
-  color: #666;
-  margin: 4px 0 0 0;
+  max-width: 620px;
+  margin: 0 auto;
+  padding-top: 16px;
+  border-top: 1px solid #e5e5e5;
 }
 
 .threads {
@@ -199,6 +201,13 @@ h1.name {
   height: auto;
   display: block;
   margin: 0 auto;
+}
+
+/* Paper main figures are wide; let them fill the figure column */
+.thumb-fig {
+  max-width: 100%;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
 }
 
 .misc-label {

@@ -71,14 +71,14 @@
             }
           ],
           "knowsAbout": [
-            "Trustworthy AI",
             "Clinical AI",
             "Large language models",
             "Human-AI collaboration",
-            "Automation bias",
-            "LLM evaluation",
+            "Trustworthy AI",
             "KV-cache compression",
-            "Natural language processing"
+            "Efficient inference",
+            "Reinforcement learning",
+            "LLM post-training"
           ],
           "sameAs": [
             "https://scholar.google.com/citations?user=ejT9Hw4AAAAJ",
@@ -93,6 +93,7 @@
 
     <link rel="icon" href="favicon.ico" sizes="any">
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192x192.png">
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
   </head>
@@ -107,24 +108,20 @@
             <tr class="header-row" style="padding:0px">
               <td class="header-text" style="padding:2.5%;width:63%;vertical-align:middle">
                 <h1 class="name" style="text-align: center;">Atta Ul Asad</h1>
-                <p class="tagline">M.S. Student in Artificial Intelligence &middot; LUMS</p>
                 <p>
                   I am an M.S. student in Artificial Intelligence at the <a href="https://lums.edu.pk/">Lahore University of Management Sciences (LUMS)</a>.
-                  I study how large language models behave when they support high-stakes decisions, using clinical diagnosis as my main testbed.
-                  I am interested in when an AI second opinion adds independent judgment and when it only echoes the person asking, and in judging AI assistance by its effect on the final decision rather than by standalone accuracy.
+                  My research interests are in three areas:
+                  <strong>clinical LLMs</strong>, where I study when an AI second opinion adds independent judgment and when it only echoes the clinician asking;
+                  <strong>efficient inference</strong>, through KV-cache compression that saves memory without losing what the answer depends on;
+                  and <strong>post-training for self-improving LLMs</strong>, where I study which training tasks, including ones a model generates for itself, actually improve it on problems it has not seen.
                 </p>
                 <p>
                   Currently, I study how a clinician's suggested diagnosis steers an LLM, using published cases in which the treating team's diagnosis was later proven wrong; <a href="data/second-opinion-or-echo.pdf">this work</a> is under review at ACM FAccT 2027.
-                  I also audit failures that aggregate accuracy hides, and I work on KV-cache eviction and self-evolving language models with researchers at the <a href="https://ai.stanford.edu/">Stanford AI Lab (SAIL)</a> and the University of Oklahoma.
+                  I also work on KV-cache eviction and self-evolving language models with researchers at the <a href="https://ai.stanford.edu/">Stanford AI Lab (SAIL)</a> and the <a href="https://www.cam.ac.uk/">University of Cambridge</a>.
                 </p>
                 <p>
                   In summer 2026 I was a research intern at the <a href="https://www.ou.edu/">University of Oklahoma</a> with <a href="https://www.ou.edu/coe/cs/people/faculty/dean-hougen/">Dean F. Hougen</a>.
                   Before LUMS, I received my B.S. in Computer Science from <a href="https://www.comsats.edu.pk/">COMSATS University Islamabad</a> and worked on clinical NLP with <a href="https://umexpert.um.edu.my/uzair">Uzair Ishtiaq</a> at the University of Malaya.
-                </p>
-                <p>
-                  Outside research, I love playing badminton.
-                  I am always happy to collaborate on human&ndash;AI decision-making, clinical AI, and reinforcement learning for self-improving models.
-                  If you would like to discuss new ideas or work together, feel free to email me at <a href="mailto:26280099@lums.edu.pk">26280099@lums.edu.pk</a>.
                 </p>
                 <p style="text-align:center">
                   <a href="mailto:26280099@lums.edu.pk">Email</a> &nbsp;/&nbsp;
@@ -163,12 +160,12 @@
               <td style="padding:16px;width:100%;vertical-align:middle">
                 <h2>Research</h2>
                 <p>
-                  I work on trustworthy, human-centered AI for high-stakes decisions. My research has three threads:
+                  My research is organized around three interests:
                 </p>
                 <ul class="threads">
-                  <li><strong>Human&ndash;AI decision-making.</strong> When LLM assistance improves a decision and when it propagates errors through anchoring, automation bias, or sycophancy, judged by the final decision rather than by standalone accuracy.</li>
-                  <li><strong>Auditing beyond aggregate accuracy.</strong> Failures that accuracy metrics miss, such as answers that stay correct but stop being faithful to the retrieved evidence.</li>
-                  <li><strong>Efficient and self-improving LLMs.</strong> Training-free KV-cache eviction, and post-training methods through which language models improve on tasks they generate for themselves.</li>
+                  <li><strong>Clinical LLMs and human&ndash;AI decision-making.</strong> How LLMs behave when they support high-stakes decisions such as diagnosis: when assistance improves the decision and when it propagates errors through anchoring, automation bias, or sycophancy, judged by its effect on the final decision rather than by standalone accuracy.</li>
+                  <li><strong>Efficient inference and KV-cache compression.</strong> Eviction and quantization methods that shrink the KV cache while keeping what future decoding needs, and audits of what compression costs beyond accuracy, such as faithfulness to retrieved evidence.</li>
+                  <li><strong>Post-training for self-improving LLMs.</strong> Reinforcement learning with verifiable rewards and self-evolution: which training tasks, including ones a model generates for itself, actually improve it on problems it has not seen, rather than only on the tasks it trained on.</li>
                 </ul>
               </td>
             </tr>
@@ -186,10 +183,10 @@
           <table style="width:100%;border:0px;border-spacing:0px 10px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
 
             <tr class="paper-row">
-              <td class="paper-thumb" style="padding:16px;width:20%;vertical-align:middle">
-                <img class="thumb" src="images/secondopinion.svg" width="160" height="160" loading="lazy" alt="Schematic: one added sentence suggesting a diagnosis flips the model's answer on a fixed case record, from correct to wrong or from wrong to correct">
+              <td class="paper-thumb" style="padding:16px;width:34%;vertical-align:middle">
+                <a href="images/second-opinion-fig1.png"><img class="thumb thumb-fig" src="images/second-opinion-fig1-thumb.png" width="780" height="229" loading="lazy" alt="Figure 1 of Second Opinion or Echo?: each case report is cut into a decision note and a hindsight note, and one added sentence suggests the documented error, another LLM's error, an unrelated diagnosis, or the final diagnosis; the model's top answer is scored for harm and rescue"></a>
               </td>
-              <td class="paper-text" style="padding:8px;width:80%;vertical-align:middle">
+              <td class="paper-text" style="padding:8px;width:66%;vertical-align:middle">
                 <a href="data/second-opinion-or-echo.pdf">
                   <span class="papertitle">Second Opinion or Echo? How Documented Misdiagnoses Steer Language Models</span>
                 </a>
@@ -214,10 +211,10 @@
             </tr>
 
             <tr class="paper-row">
-              <td class="paper-thumb" style="padding:16px;width:20%;vertical-align:middle">
-                <img class="thumb" src="images/faithfulness.svg" width="160" height="160" loading="lazy" alt="Schematic: INT4 KV-cache quantization keeps answers correct but less faithful to the documents">
+              <td class="paper-thumb" style="padding:16px;width:34%;vertical-align:middle">
+                <a href="images/faithfulness-fig1.png"><img class="thumb thumb-fig" src="images/faithfulness-fig1.png" width="756" height="178" loading="lazy" alt="Faithfulness Is Not Free pipeline: document chunks are prefilled into offline KV caches, retrieved caches are reused at inference, and answers are scored with HHEM-2.1-Open, DeBERTa-v3-large NLI, and an LLM judge"></a>
               </td>
-              <td class="paper-text" style="padding:8px;width:80%;vertical-align:middle">
+              <td class="paper-text" style="padding:8px;width:66%;vertical-align:middle">
                 <a href="https://arxiv.org/abs/2608.30996">
                   <span class="papertitle">Faithfulness Is Not Free: Auditing Offline KV-Cache Quantization in Retrieval-Augmented Generation</span>
                 </a>
@@ -241,10 +238,10 @@
             </tr>
 
             <tr class="paper-row">
-              <td class="paper-thumb" style="padding:16px;width:20%;vertical-align:middle">
-                <img class="thumb" src="images/lorekv.svg" width="160" height="160" loading="lazy" alt="Schematic of LORE-KV: sampled continuations score prompt tokens for eviction">
+              <td class="paper-thumb" style="padding:16px;width:34%;vertical-align:middle">
+                <a href="images/lorekv-efficiency.png"><img class="thumb thumb-fig" src="images/lorekv-efficiency.png" width="796" height="520" loading="lazy" alt="Bar chart: at equal LongBench accuracy, LORE-KV needs 1.63, 1.62, and 1.50 times less KV cache than AnDPro at budgets of 128, 256, and 512 tokens, ahead of CriticalKV and LAQ++"></a>
               </td>
-              <td class="paper-text" style="padding:8px;width:80%;vertical-align:middle">
+              <td class="paper-text" style="padding:8px;width:66%;vertical-align:middle">
                 <a href="https://ahsanbilal7.github.io/train_free_kv/">
                   <span class="papertitle">Monte Carlo Estimation for KV Cache Eviction</span>
                 </a>
@@ -270,7 +267,7 @@
                 <p></p>
                 <p>
                   LORE-KV is a training-free eviction method: it scores each prompt token by how much deleting it would change the attention output for short continuations sampled from the frozen model, so the cache keeps the tokens that future decoding queries need.
-                  At a 128-token budget, LongBench on Qwen2.5-14B goes from 45.49 to 48.24 and 16K RULER on Mistral-7B from 45.20 to 51.05; a single sampled continuation recovers about 89% of the gain. Gains shrink at larger budgets.
+                  On Mistral-7B it matches AnDPro's LongBench accuracy with 1.50&ndash;1.63&times; less cache, and at a 128-token budget it raises LongBench on Qwen2.5-14B from 45.49 to 48.24 and 16K RULER on Mistral-7B from 45.20 to 51.05. Gains shrink at larger budgets.
                 </p>
               </td>
             </tr>
@@ -370,6 +367,19 @@
             <tr class="misc-row">
               <td class="misc-left" style="padding:6px 16px;width:32%;vertical-align:top"><span class="misc-label">Teaching Assistant</span></td>
               <td class="misc-right" style="padding:6px 16px 6px 8px;vertical-align:top">Machine Learning (Fall 2025) and Natural Language Processing (Spring 2025), COMSATS University Islamabad</td>
+            </tr>
+          </tbody></table>
+
+          <!-- ============================== CONTACT ============================== -->
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr>
+              <td style="padding:24px 16px 0 16px;width:100%;vertical-align:middle">
+                <p class="contact">
+                  Outside research, I love playing badminton.
+                  I am always happy to collaborate on human&ndash;AI decision-making, clinical AI, and reinforcement learning for self-improving models.
+                  If you would like to discuss new ideas or work together, feel free to email me at <a href="mailto:26280099@lums.edu.pk">26280099@lums.edu.pk</a>.
+                </p>
+              </td>
             </tr>
           </tbody></table>
 
