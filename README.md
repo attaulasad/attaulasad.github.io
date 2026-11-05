@@ -15,7 +15,7 @@ Static single-page site served by GitHub Pages. Plain HTML/CSS, no build step.
 
 - **CV:** replace `data/AttaUlAsad_CV.pdf` (keep the filename so the link stays valid).
 - **Updates:** add a `<li>` at the top of the `Updates` list; drop stale "under review" items once decisions are out.
-- **Papers:** copy an existing `<tr class="paper-row">` block. Thumbnails go in `images/` at about 320 px wide (JPG or SVG).
+- **Papers:** copy an existing `<tr class="paper-row">` block. Thumbnails are each paper's main figure in `images/`, linked to the full-size file; give the `<img>` the classes `thumb thumb-fig` and its pixel `width`/`height`.
 - **Preview locally:** `python3 -m http.server 8000`, then open http://localhost:8000.
 
 Design and source code from [Jon Barron's website](https://github.com/jonbarron/jonbarron_website).

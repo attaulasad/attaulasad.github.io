@@ -212,7 +212,7 @@
 
             <tr class="paper-row">
               <td class="paper-thumb" style="padding:16px;width:34%;vertical-align:middle">
-                <img class="thumb" src="images/faithfulness.svg" width="160" height="160" loading="lazy" alt="Schematic: INT4 KV-cache quantization keeps answers correct but less faithful to the documents">
+                <a href="images/faithfulness-fig1.png"><img class="thumb thumb-fig" src="images/faithfulness-fig1.png" width="756" height="178" loading="lazy" alt="Faithfulness Is Not Free pipeline: document chunks are prefilled into offline KV caches, retrieved caches are reused at inference, and answers are scored with HHEM-2.1-Open, DeBERTa-v3-large NLI, and an LLM judge"></a>
               </td>
               <td class="paper-text" style="padding:8px;width:66%;vertical-align:middle">
                 <a href="https://arxiv.org/abs/2608.30996">
@@ -239,7 +239,7 @@
 
             <tr class="paper-row">
               <td class="paper-thumb" style="padding:16px;width:34%;vertical-align:middle">
-                <a href="images/lorekv-fig1.png"><img class="thumb thumb-fig" src="images/lorekv-fig1-thumb.png" width="780" height="225" loading="lazy" alt="LORE-KV pipeline: prefill, Monte Carlo lookahead, reliability weights, projected deletion score, then evict and decode"></a>
+                <a href="images/lorekv-efficiency.png"><img class="thumb thumb-fig" src="images/lorekv-efficiency.png" width="796" height="520" loading="lazy" alt="Bar chart: at equal LongBench accuracy, LORE-KV needs 1.63, 1.62, and 1.50 times less KV cache than AnDPro at budgets of 128, 256, and 512 tokens, ahead of CriticalKV and LAQ++"></a>
               </td>
               <td class="paper-text" style="padding:8px;width:66%;vertical-align:middle">
                 <a href="https://ahsanbilal7.github.io/train_free_kv/">
@@ -267,7 +267,7 @@
                 <p></p>
                 <p>
                   LORE-KV is a training-free eviction method: it scores each prompt token by how much deleting it would change the attention output for short continuations sampled from the frozen model, so the cache keeps the tokens that future decoding queries need.
-                  At a 128-token budget, LongBench on Qwen2.5-14B goes from 45.49 to 48.24 and 16K RULER on Mistral-7B from 45.20 to 51.05; a single sampled continuation recovers about 89% of the gain. Gains shrink at larger budgets.
+                  On Mistral-7B it matches AnDPro's LongBench accuracy with 1.50&ndash;1.63&times; less cache, and at a 128-token budget it raises LongBench on Qwen2.5-14B from 45.49 to 48.24 and 16K RULER on Mistral-7B from 45.20 to 51.05. Gains shrink at larger budgets.
                 </p>
               </td>
             </tr>
@@ -290,9 +290,7 @@
                 <br>
                 <em>In progress</em>, with <a href="https://ahsanbilal7.github.io/">A. Bilal</a> and <a href="https://ahmd-mohsin.github.io/">M. A. Mohsin</a>
                 <p>
-                  Does a training prompt actually help on unseen target problems?
-                  We test whether the alignment between a prompt's gradient and a target-problem gradient predicts held-out gain in reinforcement learning with verifiable rewards, controlling for difficulty, length, and compute.
-                  If it does, the same signal rewards a self-evolving Challenger for tasks that help the Solver, not only for tasks that are hard.
+                  Post-training for self-evolving language models: Challenger&ndash;Solver self-play with minimax-regret environment design over verifiable environments, and influence-guided selection of the data used for reinforcement learning with verifiable rewards.
                 </p>
               </td>
             </tr>
